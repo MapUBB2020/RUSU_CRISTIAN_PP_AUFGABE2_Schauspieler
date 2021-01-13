@@ -15,6 +15,9 @@ public class Repository {
 
     }
 
+    public ArrayList<Film> getAllFilms() {
+        return storageFilms;
+    }
     public void addActor(Actor a) {
         storageActors.add(a);
     }
@@ -27,4 +30,20 @@ public class Repository {
 
     public void deleteFilm(Film f) {storageFilms.remove(f); }
 
+    public Actor getTopActor() {
+        int maxCount = -1;
+        Actor maxActor = null;
+        for (var a : storageActors) {
+            int count = 0;
+            for (var f : storageFilms) {
+                if (f.getActori().contains(a))
+                    count += 1;
+            }
+            if (count > maxCount) {
+                maxActor = a;
+                maxCount = count;
+            }
+        }
+        return maxActor;
+    }
 }

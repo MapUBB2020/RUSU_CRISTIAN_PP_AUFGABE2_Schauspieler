@@ -6,6 +6,7 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-	    Repository r = new Repository();
+	    View view = new View();
+	    view.start();
     }
 }
